@@ -9,37 +9,72 @@ public class MovementEtTir : MonoBehaviour
     public Transform limitL;
     public Transform limitR;
 
-    public float speed = 0.2f;
+    public float speed;
+    public float baseSpeed;
+    public float tirRate;
+    public float baseTirRate;
+    public float timer;
+    public float timerBonusSpeed;
+    public float timerBonusTirRate;
+
+    public bool canShoot = true;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        baseSpeed = speed;
+        baseTirRate = tirRate;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.LeftArrow))
+        Movement();
+        Timer();
+    }
+
+    public void Movement()
+    {
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.position += Vector3.left*speed;
+            transform.position += Vector3.left * speed;
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.position += Vector3.right*speed;
+            transform.position += Vector3.right * speed;
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && canShoot)
         {
+            canShoot = false;
+            Invoke("HableShoot", tirRate);
             Instantiate(bullet, parent.position, parent.rotation);
         }
 
-        if(transform.position.x < limitL.position.x)
+        if (transform.position.x < limitL.position.x)
         {
             transform.position = new Vector3(limitR.position.x, transform.position.y, transform.position.z);
         }
         if (transform.position.x > limitR.position.x)
         {
             transform.position = new Vector3(limitL.position.x, transform.position.y, transform.position.z);
+        }
+    }
+    public void HableShoot()
+    {
+        canShoot = true;
+    }
+    public void Timer()
+    {
+        timer += Time.deltaTime;
+        if (timer >= timerBonusTirRate)
+        {
+            //Reset Base Tir Rate
+            tirRate = baseTirRate;
+        }
+        if (timer >= timerBonusSpeed)
+        {
+            //Reset Base Speed
+            speed = baseSpeed;
         }
     }
 }

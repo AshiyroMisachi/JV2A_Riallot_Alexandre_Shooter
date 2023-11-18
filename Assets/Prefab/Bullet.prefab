@@ -9,13 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 330690868964083747}
+  - component: {fileID: 4819524458355231120}
   - component: {fileID: 6596798036647082767}
   - component: {fileID: 6863447708074395207}
   - component: {fileID: 3588231135627767681}
-  - component: {fileID: 4819524458355231120}
   - component: {fileID: 5144115588052714144}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,6 +36,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4819524458355231120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6470470209835675063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c9e90b22d5293a4894afc94eb6acbc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monRigidBody: {fileID: 6863447708074395207}
+  speed: 12
+  bonusSpeed: {fileID: 8825395870662092613, guid: 4223b6c35814baf488541e64790ef870, type: 3}
+  bonusTirRate: {fileID: 8585959467043865271, guid: dcb95d64923f97543aa8db0137c411b4, type: 3}
 --- !u!212 &6596798036647082767
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -150,20 +166,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
---- !u!114 &4819524458355231120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6470470209835675063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c9e90b22d5293a4894afc94eb6acbc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  monRigidBody: {fileID: 6863447708074395207}
-  speed: 12
 --- !u!96 &5144115588052714144
 TrailRenderer:
   serializedVersion: 3
