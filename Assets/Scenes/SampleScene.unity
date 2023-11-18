@@ -232,7 +232,8 @@ MonoBehaviour:
   numberEnnemy: 0
   directionEnnemy: 1
   motherShipAlive: 0
-  countWave: 0
+  countWave: 1
+  uiWave: {fileID: 935068702}
   motherShip: {fileID: 8034928031571434217, guid: ade8c1fa5e528b24ea94985454546fd0, type: 3}
   invader: {fileID: 6128441405271233860, guid: 380c184ecf7028c47902e62eb91c4e93, type: 3}
   invaderShoot: {fileID: 2353643932710540989, guid: 8b4ae8a12fe2f0e4b8189f3b49eccb48, type: 3}
@@ -1310,7 +1311,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Wave: '
+  m_text: 'Wave: 1'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
