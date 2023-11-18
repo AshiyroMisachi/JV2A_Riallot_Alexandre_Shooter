@@ -7,18 +7,28 @@ public class Bullet : MonoBehaviour
     public Rigidbody2D monRigidBody;
     public float speed;
 
+    public MovementEtTir player;
+
     public GameObject bonusSpeed;
     public GameObject bonusTirRate;
     // Start is called before the first frame update
     void Start()
     {
+        player = FindObjectOfType<MovementEtTir>();
         monRigidBody.velocity = Vector3.up * speed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //Clear Object
         Destroy(collision.gameObject);
         Destroy(gameObject);
+
+        //Player Score
+        player.score += 1;
+        Debug.Log(player.score);
+
+        //Bonus Drop
         int getBonus = Random.Range(0, 4);
         if (getBonus == 0)
         {

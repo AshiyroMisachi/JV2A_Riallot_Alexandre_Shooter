@@ -9,6 +9,7 @@ public class MovementEtTir : MonoBehaviour
     public Transform limitL;
     public Transform limitR;
 
+    public int score;
     public float speed;
     public float baseSpeed;
     public float tirRate;
