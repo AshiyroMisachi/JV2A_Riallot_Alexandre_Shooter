@@ -9,3 +9,11 @@ public enum PlayerTypeShoot
     Double,
     Spread
 }
+
+//Type of Ennemies
+public enum EnnemiesType
+{
+    Invader,
+    Invader_Shoot,
+    Mother_Ship
+}

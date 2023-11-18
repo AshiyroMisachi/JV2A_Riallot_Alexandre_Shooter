@@ -50,6 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monRigidBody: {fileID: 6863447708074395207}
   speed: 12
+  damage: 2
+  player: {fileID: 0}
   bonusSpeed: {fileID: 8825395870662092613, guid: 4223b6c35814baf488541e64790ef870, type: 3}
   bonusTirRate: {fileID: 8585959467043865271, guid: dcb95d64923f97543aa8db0137c411b4, type: 3}
 --- !u!212 &6596798036647082767

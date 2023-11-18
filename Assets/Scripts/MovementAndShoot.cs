@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementEtTir : MonoBehaviour
+public class MovementAndShoot : MonoBehaviour
 {
     public GameObject bullet;
     public Transform parent;
