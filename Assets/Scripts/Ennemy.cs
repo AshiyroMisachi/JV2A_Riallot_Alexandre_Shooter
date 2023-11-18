@@ -24,6 +24,7 @@ public class Ennemy : MonoBehaviour
         management.numberEnnemy += 1;
         if (type == EnnemiesType.Mother_Ship)
         {
+            management.motherShipAlive = true;
             Invoke("HableShoot", 2f);
         }
     }
@@ -61,6 +62,12 @@ public class Ennemy : MonoBehaviour
             }
         }
 
+        //Clear if Mother Ship die
+        if (!management.motherShipAlive)
+        {
+            Destroy(gameObject);
+            management.numberEnnemy -= 1;
+        }
     }
 
     public void movement()

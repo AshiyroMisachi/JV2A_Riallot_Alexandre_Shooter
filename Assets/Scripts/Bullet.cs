@@ -50,7 +50,11 @@ public class Bullet : MonoBehaviour
             if (ennemy.health <= 0)
             {
                 Destroy(collision.gameObject);
-
+                if (ennemy.type == EnnemiesType.Mother_Ship)
+                {
+                    ennemy.management.motherShipAlive = false;
+                }
+                ennemy.management.numberEnnemy -= 1;
                 //Player Score
                 player.score += ennemy.giveScore;
 
