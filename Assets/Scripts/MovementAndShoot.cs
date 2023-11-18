@@ -1,9 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MovementAndShoot : MonoBehaviour
 {
+    public TextMeshProUGUI uiScore;
+    public TextMeshProUGUI uiHealth;
+    public Image speedBoost;
+    public Image tirRateBoost;
+
     public GameObject bullet;
     public Transform parent;
     public Transform limitL;
@@ -11,6 +18,7 @@ public class MovementAndShoot : MonoBehaviour
 
     public int score;
     public float speed;
+    public int health;
     public float baseSpeed;
     public float tirRate;
     public float baseTirRate;
@@ -33,6 +41,7 @@ public class MovementAndShoot : MonoBehaviour
     {
         Movement();
         Timer();
+        GestionUI();
     }
 
     public void Movement()
@@ -109,5 +118,13 @@ public class MovementAndShoot : MonoBehaviour
             //Reset Base Speed
             speed = baseSpeed;
         }
+    }
+    public void GestionUI()
+    {
+        uiScore.text = "Score: " + score;
+        uiHealth.text = "Health: " + health;
+
+        speedBoost.fillAmount = (timerBonusSpeed - timer) / 5f;
+        tirRateBoost.fillAmount = (timerBonusTirRate - timer) / 5f;
     }
 }

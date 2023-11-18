@@ -80,6 +80,11 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
 
             //Lose Hp Player
+            player.health -= damage;
+            if (player.health <= 0)
+            {
+                Destroy(collision.gameObject);
+            }
         }
     }
 }

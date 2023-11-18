@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  health: 20
+  health: 10
   giveScore: 1
   canShoot: 0
   tirRate: 0
