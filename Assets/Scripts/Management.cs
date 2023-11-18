@@ -55,17 +55,17 @@ public class Management : MonoBehaviour
     {
         for (int i = 0; i < numberSpawn; i++)
         {
-            int random = Random.Range(0, 2);
+            int random = Random.Range(0, 3);
             GameObject ennemy;
             if (random == 0)
             {
-                //Spawn Invader
-                 ennemy = Instantiate(invader, pos, Quaternion.identity);
+                //Spawn InvaderShoot
+                ennemy = Instantiate(invaderShoot, pos, Quaternion.identity);
             }
             else
             {
-                //Spawn InvaderShoot
-                 ennemy = Instantiate(invaderShoot, pos, Quaternion.identity);
+                //Spawn Invader
+                ennemy = Instantiate(invader, pos, Quaternion.identity);
             }
             pos += new Vector3((distancePos / numberSpawn), 0f, 0f);
             ennemy.GetComponent<Ennemy>().health += countWave * 2;

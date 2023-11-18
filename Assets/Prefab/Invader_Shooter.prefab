@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  health: 2
+  health: 5
   giveScore: 2
   canShoot: 1
   tirRate: 2
