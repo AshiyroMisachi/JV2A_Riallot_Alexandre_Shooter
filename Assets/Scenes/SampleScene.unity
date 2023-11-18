@@ -1637,6 +1637,7 @@ MonoBehaviour:
   parent: {fileID: 234670887}
   limitL: {fileID: 1923840854}
   limitR: {fileID: 1899504735}
+  score: 0
   speed: 0.02
   baseSpeed: 0
   tirRate: 0.3
@@ -1645,6 +1646,7 @@ MonoBehaviour:
   timerBonusSpeed: 0
   timerBonusTirRate: 0
   canShoot: 1
+  typeShoot: 0
 --- !u!50 &983346838
 Rigidbody2D:
   serializedVersion: 4

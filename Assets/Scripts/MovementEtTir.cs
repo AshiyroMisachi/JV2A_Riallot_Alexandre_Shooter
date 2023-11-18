@@ -19,6 +19,7 @@ public class MovementEtTir : MonoBehaviour
     public float timerBonusTirRate;
 
     public bool canShoot = true;
+    public PlayerTypeShoot typeShoot;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,7 @@ public class MovementEtTir : MonoBehaviour
 
     public void Movement()
     {
+        //Movement
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.position += Vector3.left * speed;
@@ -44,13 +46,43 @@ public class MovementEtTir : MonoBehaviour
         {
             transform.position += Vector3.right * speed;
         }
+        //Shoot
         if (Input.GetKey(KeyCode.Space) && canShoot)
         {
             canShoot = false;
             Invoke("HableShoot", tirRate);
-            Instantiate(bullet, parent.position, parent.rotation);
+            if (typeShoot == PlayerTypeShoot.Basic)
+            {
+                //Single Bullet
+                Instantiate(bullet, parent.position, parent.rotation);
+            }
+            else if (typeShoot == PlayerTypeShoot.Double)
+            {
+                //Double Bullet center
+                Instantiate(bullet, parent.position + new Vector3(-0.2f,0f,0f), parent.rotation);
+                Instantiate(bullet, parent.position + new Vector3(0.2f, 0f, 0f), parent.rotation);
+            }
+            else
+            {
+                //Four Bullet
+                Instantiate(bullet, parent.position + new Vector3(-0.2f, 0f, 0f), parent.rotation);
+                Instantiate(bullet, parent.position + new Vector3(0.2f, 0f, 0f), parent.rotation);
+
+                Instantiate(bullet, parent.position + new Vector3(-0.5f, 0f, 0f), parent.rotation);
+                Instantiate(bullet, parent.position + new Vector3(0.5f, 0f, 0f), parent.rotation);
+            }
+        }
+        //Check Upgrade TypeShoot
+        if (score >= 60)
+        {
+            typeShoot = PlayerTypeShoot.Spread;
+        }
+        else if (score >= 30)
+        {
+            typeShoot = PlayerTypeShoot.Double;
         }
 
+        //Limit of the Map
         if (transform.position.x < limitL.position.x)
         {
             transform.position = new Vector3(limitR.position.x, transform.position.y, transform.position.z);
