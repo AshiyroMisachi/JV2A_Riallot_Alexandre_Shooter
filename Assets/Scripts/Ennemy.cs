@@ -24,8 +24,11 @@ public class Ennemy : MonoBehaviour
         management.numberEnnemy += 1;
         if (type == EnnemiesType.Mother_Ship)
         {
-            management.motherShipAlive = true;
             Invoke("HableShoot", 2f);
+        }
+        else if (type == EnnemiesType.Invader_Shoot)
+        {
+            Invoke("HableShoot", 1f);
         }
     }
 

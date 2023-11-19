@@ -34,6 +34,9 @@ public class MovementAndShoot : MonoBehaviour
     {
         baseSpeed = speed;
         baseTirRate = tirRate;
+
+        uiScore.text = "Score: " + score;
+        uiHealth.text = "Health: " + health;
     }
 
     // Update is called once per frame
@@ -121,9 +124,6 @@ public class MovementAndShoot : MonoBehaviour
     }
     public void GestionUI()
     {
-        uiScore.text = "Score: " + score;
-        uiHealth.text = "Health: " + health;
-
         speedBoost.fillAmount = (timerBonusSpeed - timer) / 5f;
         tirRateBoost.fillAmount = (timerBonusTirRate - timer) / 5f;
     }

@@ -6,18 +6,16 @@ public class Bonus : MonoBehaviour
 {
     public float speed;
     public Rigidbody2D body;
-    public MovementAndShoot player;
     // Start is called before the first frame update
     void Start()
     {
-        player = FindObjectOfType<MovementAndShoot>();
         body = GetComponent<Rigidbody2D>();
         body.velocity = Vector3.down * speed;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        MovementAndShoot isPlayer = collision.GetComponent<MovementAndShoot>();
-        if (isPlayer != null)
+        MovementAndShoot player = collision.GetComponent<MovementAndShoot>();
+        if (player != null)
         {
             if (tag == "Bonus_Speed")
             {

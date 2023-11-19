@@ -29,27 +29,40 @@ public class Management : MonoBehaviour
         //Timer
         timer += Time.deltaTime;
 
-
         //Change Direction Ennemy
         if (timer > changeDirectionEnnemy)
         {
             changeDirectionEnnemy = timer + 10f;
             directionEnnemy *= -1;
         }
+        
+        //Bug fix
+        if (numberEnnemy <= 0)
+        {
+            numberEnnemy = 0;
+        }
 
         //Respawn Wave
-        if (!motherShipAlive)
+        if (!motherShipAlive && numberEnnemy == 0)
         {
+            motherShipAlive = true;
             countWave++;
             uiWave.text = "Wave: " + countWave;
-            //Spawn MotherShip
-            GameObject newMotherShip = Instantiate(motherShip, new Vector3(0f, 4f, 0f), transform.rotation);
-            newMotherShip.GetComponent<Ennemy>().health += countWave * 10;
-
-            spawnLine(new Vector3(-5f, 0f, 0f), 10f, 8f);
-            spawnLine(new Vector3(-6.5f, 1.25f, 0f), 13f, 10f);
-            spawnLine(new Vector3(-8f, 2.4f, 0f), 16f, 12f);
+            Invoke("callSpawnLine", 2f);
         }
+        
+    }
+
+    public void callSpawnLine()
+    {
+        //Spawn MotherShip
+        GameObject newMotherShip = Instantiate(motherShip, new Vector3(0f, 4f, 0f), transform.rotation);
+        newMotherShip.GetComponent<Ennemy>().health += countWave * 10;
+
+        //Spawn other Invader
+        spawnLine(new Vector3(-5f, 0f, 0f), 10f, 8f);
+        spawnLine(new Vector3(-6.5f, 1.25f, 0f), 13f, 10f);
+        spawnLine(new Vector3(-8f, 2.4f, 0f), 16f, 12f);
     }
     public void spawnLine(Vector3 pos, float distancePos, float numberSpawn)
     {

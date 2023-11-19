@@ -102,7 +102,7 @@ MonoBehaviour:
   speed: 1
   health: 5
   giveScore: 2
-  canShoot: 1
+  canShoot: 0
   tirRate: 2
   type: 1
   body: {fileID: 0}

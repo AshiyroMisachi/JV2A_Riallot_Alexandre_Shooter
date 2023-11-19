@@ -57,6 +57,7 @@ public class Bullet : MonoBehaviour
                 ennemy.management.numberEnnemy -= 1;
                 //Player Score
                 player.score += ennemy.giveScore;
+                player.uiScore.text = "Score: " + player.score;
 
                 //Bonus Drop
                 int getBonus = Random.Range(0, 4);
@@ -85,6 +86,7 @@ public class Bullet : MonoBehaviour
 
             //Lose Hp Player
             player.health -= damage;
+            player.uiHealth.text = "Health: " + player.health;
             if (player.health <= 0)
             {
                 Destroy(collision.gameObject);
