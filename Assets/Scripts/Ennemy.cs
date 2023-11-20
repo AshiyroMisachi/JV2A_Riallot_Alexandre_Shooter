@@ -22,13 +22,14 @@ public class Ennemy : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
 
         management.numberEnnemy += 1;
-        if (type == EnnemiesType.Mother_Ship)
+        switch (type)
         {
-            Invoke("HableShoot", 2f);
-        }
-        else if (type == EnnemiesType.Invader_Shoot)
-        {
-            Invoke("HableShoot", 1f);
+            case EnnemiesType.Invader_Shoot:
+                Invoke("HableShoot", 2f);
+                break;
+            case EnnemiesType.Mother_Ship:
+                Invoke("HableShoot", 1f);
+                break;
         }
     }
 

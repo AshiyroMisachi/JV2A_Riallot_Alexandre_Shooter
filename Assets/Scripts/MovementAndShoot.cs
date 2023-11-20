@@ -63,25 +63,25 @@ public class MovementAndShoot : MonoBehaviour
         {
             canShoot = false;
             Invoke("HableShoot", tirRate);
-            if (typeShoot == PlayerTypeShoot.Basic)
+            switch (typeShoot)
             {
-                //Single Bullet
-                Instantiate(bullet, parent.position, parent.rotation);
-            }
-            else if (typeShoot == PlayerTypeShoot.Double)
-            {
-                //Double Bullet center
-                Instantiate(bullet, parent.position + new Vector3(-0.2f,0f,0f), parent.rotation);
-                Instantiate(bullet, parent.position + new Vector3(0.2f, 0f, 0f), parent.rotation);
-            }
-            else
-            {
-                //Four Bullet
-                Instantiate(bullet, parent.position + new Vector3(-0.2f, 0f, 0f), parent.rotation);
-                Instantiate(bullet, parent.position + new Vector3(0.2f, 0f, 0f), parent.rotation);
+                case PlayerTypeShoot.Basic:
+                    //Single Bullet
+                    Instantiate(bullet, parent.position, parent.rotation);
+                    break;
+                case PlayerTypeShoot.Double:
+                    //Four Bullet
+                    Instantiate(bullet, parent.position + new Vector3(-0.2f, 0f, 0f), parent.rotation);
+                    Instantiate(bullet, parent.position + new Vector3(0.2f, 0f, 0f), parent.rotation);
+                    break;
+                case PlayerTypeShoot.Spread:
+                    //Four Bullet
+                    Instantiate(bullet, parent.position + new Vector3(-0.2f, 0f, 0f), parent.rotation);
+                    Instantiate(bullet, parent.position + new Vector3(0.2f, 0f, 0f), parent.rotation);
 
-                Instantiate(bullet, parent.position + new Vector3(-0.5f, 0f, 0f), parent.rotation);
-                Instantiate(bullet, parent.position + new Vector3(0.5f, 0f, 0f), parent.rotation);
+                    Instantiate(bullet, parent.position + new Vector3(-0.5f, 0f, 0f), parent.rotation);
+                    Instantiate(bullet, parent.position + new Vector3(0.5f, 0f, 0f), parent.rotation);
+                    break;
             }
         }
         //Check Upgrade TypeShoot
