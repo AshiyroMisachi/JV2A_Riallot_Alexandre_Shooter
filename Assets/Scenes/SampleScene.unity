@@ -1568,7 +1568,7 @@ MonoBehaviour:
   timerBonusSpeed: 0
   timerBonusTirRate: 0
   canShoot: 1
-  typeShoot: 1
+  typeShoot: 0
 --- !u!50 &983346838
 Rigidbody2D:
   serializedVersion: 4
